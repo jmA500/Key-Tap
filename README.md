@@ -12,7 +12,7 @@ https://www.jm27.de/key-tap-a-hardware-configurator-for-the-amiga-500/
 
 	All material is freely usable under the GPL v2
 
-# Directoty structure
+# Directory structure
 
 	* hardware: Contains Eagle PCB files
 	* firmware: Pre-built hex-files for different MCUs
