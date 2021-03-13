@@ -1,0 +1,27 @@
+This code is licenced under the GPLv2 and can be used and freely
+distributed under these terms. See the file LICENCE for the full text. 
+
+
+The UART Library in the files uart.h and uart4313.h is based on work by 
+    Peter Fleury <pfleury@gmx.ch>
+and modified by 
+    Jan Metzger <jm@metweb.de>
+
+Modifications include some code size optimizations and adaptions to the AtTiny4313, 
+but the core functionality is basically unchanged.
+
+Copyright for these files is
+    Copyright (C) 2006 Peter Fleury
+    Copyright (C) 2014 Jan Metzger
+
+
+The other files: main.c, key_tap.h key_tap.c, uart_helper.c  uart_helper.h  util.c  util.h
+were written by 
+     Jan Metzger <jm@metweb.de>
+and Copyright 
+     Copyright (C) 2014 Jan Metzger
+
+These files may also be available under a different licence than
+GPLv2, please contact the author for more information.
+
+

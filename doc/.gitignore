@@ -1,0 +1,12 @@
+*.snm
+*.toc
+*.nav
+*.aux
+auto
+*.log
+*.out
+*.bbl
+*.blg
+*.vrb
+manual-generic.pdf
+manual-v1.pdf
