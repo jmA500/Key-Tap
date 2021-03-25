@@ -318,7 +318,7 @@ main()
 			    {
 			      next |= (1 << (lastfkey-1));
 			    }
-			  else if ( (11 <= lastfkey) && (lastfkey <= 18))
+			  else if ( (11 <= lastfkey) && (lastfkey <= 17))
 			    {
 			      next &= ~(1 << (lastfkey - 11));
 			    }
