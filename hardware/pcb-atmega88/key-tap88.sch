@@ -110,7 +110,7 @@ U 1 1 60582F22
 P 8350 3050
 F 0 "J5" H 8768 3058 60  0000 L CNN
 F 1 "AMIGA-Keyboard-PINHEAD" H 8768 2952 60  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 8200 3050 60  0001 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x08_Pitch2.54mm" H 8200 3050 60  0001 C CNN
 F 3 "" H 8200 3050 60  0001 C CNN
 	1    8350 3050
 	1    0    0    -1  
@@ -265,17 +265,17 @@ $EndComp
 Wire Wire Line
 	2200 2600 2250 2600
 Wire Wire Line
-	2200 2600 2200 3150
+	2200 2600 2200 2850
 Connection ~ 2200 2600
 $Comp
 L power-own:GND #PWR0109
 U 1 1 6060402D
-P 2200 3150
-F 0 "#PWR0109" H 2200 2900 50  0001 C CNN
-F 1 "GND" H 2200 2977 50  0000 C CNN
-F 2 "" H 2200 3150 50  0001 C CNN
-F 3 "" H 2200 3150 50  0001 C CNN
-	1    2200 3150
+P 2200 3500
+F 0 "#PWR0109" H 2200 3250 50  0001 C CNN
+F 1 "GND" H 2200 3327 50  0000 C CNN
+F 2 "" H 2200 3500 50  0001 C CNN
+F 3 "" H 2200 3500 50  0001 C CNN
+	1    2200 3500
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -524,12 +524,47 @@ Text Label 5200 3900 0    50   ~ 0
 TXD
 Text Notes 7950 4100 0    50   ~ 0
 Configuration Pins
-NoConn ~ 4750 2200
-NoConn ~ 2850 2850
-NoConn ~ 2850 3250
 NoConn ~ 2850 3900
 NoConn ~ 2850 4000
 NoConn ~ 4750 4500
 NoConn ~ 4750 4300
 NoConn ~ 4750 4400
+$Comp
+L Jumper:SolderJumper_2_Open JP1
+U 1 1 606DD9FE
+P 2600 2850
+F 0 "JP1" H 2600 3055 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 2600 2964 50  0000 C CNN
+F 2 "Conn2:SMD-JUMPER" H 2600 2850 50  0001 C CNN
+F 3 "~" H 2600 2850 50  0001 C CNN
+	1    2600 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 2200 4800 2200
+Wire Wire Line
+	2750 2850 2850 2850
+Wire Wire Line
+	2450 2850 2200 2850
+Connection ~ 2200 2850
+Wire Wire Line
+	2200 2850 2200 3250
+$Comp
+L Jumper:SolderJumper_2_Open JP2
+U 1 1 607014FB
+P 2600 3250
+F 0 "JP2" H 2600 3455 50  0000 C CNN
+F 1 "SolderJumper_2_Open" H 2600 3364 50  0000 C CNN
+F 2 "Conn2:SMD-JUMPER" H 2600 3250 50  0001 C CNN
+F 3 "~" H 2600 3250 50  0001 C CNN
+	1    2600 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2750 3250 2850 3250
+Wire Wire Line
+	2450 3250 2200 3250
+Connection ~ 2200 3250
+Wire Wire Line
+	2200 3250 2200 3500
 $EndSCHEMATC
