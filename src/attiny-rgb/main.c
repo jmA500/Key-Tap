@@ -74,7 +74,8 @@ LICENSE:
 /* The timing for the key presses for the RGBtoHDMI  
  * Key press lengths for short and long presses in ms */
 #define BUTTON_SHORT 100
-#define BUTTON_LONG  1200
+#define BUTTON_LONG  1400
+#define BUTTON_VERY_LONG 10000
 
 #define SET_BIT_TRI(PORT,DDR,BIT,STATE) { \
     if (STATE) \
@@ -164,23 +165,10 @@ inline void uart_print_fkey(uint8_t lastfkey)
 #endif
 }
 
-inline void pull_key_short()
+inline void pull_key(uint16_t delay)
 {
-#ifdef UART_DEBUG
-  uart_dbg("o");
-#endif
   SET_BIT_TRI(CONFIG_PORT7, CONFIG_DDR7, CONFIG_BIT7, 1);
-  delay_ms(BUTTON_SHORT);
-  SET_BIT_TRI(CONFIG_PORT7, CONFIG_DDR7, CONFIG_BIT7, 0);    
-}
-
-inline void pull_key_long()
-{
-#ifdef UART_DEBUG
-  uart_dbg("#");
-#endif
-  SET_BIT_TRI(CONFIG_PORT7, CONFIG_DDR7, CONFIG_BIT7, 1);
-  delay_ms(BUTTON_LONG);
+  delay_ms(delay);
   SET_BIT_TRI(CONFIG_PORT7, CONFIG_DDR7, CONFIG_BIT7, 0);    
 }
 
@@ -363,13 +351,31 @@ main()
 	      if (code == KEY_F9)
 		{
 		  if ( flags & HELP_FLAG )
-		    pull_key_short();
+		    {
+#ifdef UART_DEBUG
+		      uart_dbg(".");
+#endif
+		      pull_key(BUTTON_SHORT);
+		    }
 		}
 
 	      if (code == KEY_F10)
 		{
-		  if ( flags & HELP_FLAG )
-		    pull_key_long();
+		  if ((flags & HELP_FLAG) && (flags & SHIFT_FLAG))
+		    {
+#ifdef UART_DEBUG
+		      uart_dbg("O");
+#endif
+		    pull_key(BUTTON_VERY_LONG);
+		    }
+		  else if ( flags & HELP_FLAG )
+		    {
+#ifdef UART_DEBUG
+		      uart_dbg("o");
+#endif
+			
+		      pull_key(BUTTON_LONG);
+		    }
 		}
 	      
 	      if ((code == KEY_SHIFTL) || (code == KEY_SHIFTR))

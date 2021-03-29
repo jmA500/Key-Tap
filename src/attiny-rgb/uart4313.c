@@ -223,6 +223,6 @@ ISR(USART_RX_vect)
   uint8_t tmp = uart_rx_buffer.writepos;
   uart_rx_buffer.buffer[tmp] = UDR;
   tmp++;
-  tmp &= (UART_TX_BUFSIZE - 1);  
+  tmp &= (UART_RX_BUFSIZE - 1);  
   uart_rx_buffer.writepos = tmp;
 }

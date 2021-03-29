@@ -23,7 +23,7 @@ LDFLAGS    = -s -Wl,-Map=$(TARGET).map,--cref,--gc-sections,--relax
 
 # Avrdude configuration
 AVRDUDE_PROG	= usbasp
-AVRDUDE_FLAGS   = -y -p $(MCU) -c $(AVRDUDE_PROG)
+AVRDUDE_FLAGS   = -p $(MCU) -c $(AVRDUDE_PROG)
 
 AVRDUDE_WRITE_FLASH  = -U flash:w:$(TARGET).hex
 AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep
